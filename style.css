@@ -1,0 +1,368 @@
+:root {
+	--col1: rgba(255, 255, 255, 0);
+	--col2: rgba(200, 170, 150, 0.1);
+	--col3: rgba(230, 186, 180, 0.1);
+
+	--cloud0: rgb(255, 255, 255, 0);
+	--cloud1: rgb(180, 180, 180, 0.2);
+	--cloud2: rgba(220, 220, 220, 0.2);
+
+	--displayBg: rgb(133, 125, 119);
+	--displayBgHalfTsp: rgb(133, 125, 119, 0.9);
+	--displayBgTransparent: rgb(133, 125, 119, 0);
+
+	--currentNumberPlateBg: rgb(207, 180, 145);
+	--currentNumber: rgb(0, 0, 0);
+	--numberPlateBg: rgb(105, 99, 82);
+	--number: rgb(68, 65, 65);
+
+	--band0: 0px;
+	--band1: 75px;
+	--band2: 80px;
+	--band3: 120px;
+	--band4: 125px;
+
+	/* Slightly wilder colour theme */
+
+	/*
+	--col1: rgba(255, 255, 255, 0);
+	--col2: rgba(255, 255, 255, 0.4);
+	--col3: rgba(255, 150, 20, 0.3);
+
+	--cloud0: rgb(255, 255, 255, 0);
+	--cloud1: rgb(120, 0, 0.2);
+	--cloud2: rgba(200, 10, 160, 0.3);
+
+	--displayBg: rgb(46, 46, 94);
+	--displayBgHalfTsp: rgb(46, 46, 94, 0.9);
+	--displayBgTransparent: rgb(46, 46, 94, 0);
+
+	--currentNumberPlateBg: rgb(238, 143, 18);
+	--currentNumber: rgb(0, 0, 0);
+	--numberPlateBg: rgb(78, 62, 18);
+	--number: rgb(32, 32, 32);
+
+	--band0: 0px;
+	--band1: 80px;
+	--band2: 82px;
+	--band3: 122px;
+	--band4: 124px;
+	*/
+}
+
+body {
+	background: radial-gradient(
+		circle at 50% 50%,
+		rgb(70, 67, 66) 0%,
+		rgb(0, 0, 0) 100%
+	);
+	font-size: 5em;
+	font-family: "Nova Mono", 'Courier New', Courier, monospace;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+
+div#showy {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	gap: 0.2em;
+	padding: 0.5em 0.75em;
+	box-sizing: border-box;
+	border: solid 5px black;
+	border-radius: .2em;
+	position: relative;
+	overflow: clip;
+	background-color: black;
+}
+
+div.bgdiv {
+	width: 400%;
+	height: 400%;
+	position: absolute;
+	top: -150%;
+	left: -150%;
+	transform-origin: center center;
+	animation-duration: 25s;
+	animation-direction: alternate;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
+
+div#gradCloud1 {
+	background: radial-gradient(
+		circle at 25% 50%,
+		var(--cloud1) 0%,
+		var(--cloud0) 50%
+	);
+	animation-name: fullCircle;
+	animation-duration: 10s;
+	animation-direction: normal;
+	animation-timing-function: linear;
+}
+
+div#gradCloud2 {
+	background: radial-gradient(
+		circle at 75% 50%,
+		var(--cloud2) 0%,
+		var(--cloud0) 50%
+	);
+	animation-name: fullCircle;
+	animation-duration: 11s;
+	animation-direction: reverse;
+	animation-timing-function: linear;
+}
+
+@keyframes fullCircle {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+div#grad1 {
+	background: repeating-radial-gradient(
+		circle at 25% 25%, 
+	 	var(--col1) var(--band0),
+		var(--col1) var(--band1),
+		var(--col2) var(--band1),
+		var(--col2) var(--band2),
+		var(--col3) var(--band2),
+		var(--col3) var(--band3),
+		var(--col2) var(--band3),
+		var(--col2) var(--band4)
+	);
+	animation-name: bgMove1;
+	animation-name: puup;
+	animation-duration: 59s;
+}
+
+div#grad2 {
+	background: repeating-radial-gradient(
+		circle at 80% 80%,
+		var(--col1) var(--band0),
+		var(--col1) var(--band1),
+		var(--col2) var(--band1),
+		var(--col2) var(--band2),
+		var(--col3) var(--band2),
+		var(--col3) var(--band3),
+		var(--col2) var(--band3),
+		var(--col2) var(--band4)
+	);
+	animation-name: bgMove2;
+	animation-duration: 61s;
+}
+
+div#grad3 {
+	background: repeating-radial-gradient(
+		circle at 25% 75%,
+		var(--col1) var(--band0),
+		var(--col1) var(--band1),
+		var(--col2) var(--band1),
+		var(--col2) var(--band2),
+		var(--col3) var(--band2),
+		var(--col3) var(--band3),
+		var(--col2) var(--band3),
+		var(--col2) var(--band4)
+	);
+	animation-name: bgMove3;
+	animation-duration: 67s;
+}
+
+@keyframes bgMove1 {
+	0% { transform: rotate(-90deg); }
+	100% { transform: translate(-25%, 25%) rotate(90deg); }
+}
+
+@keyframes bgMove2 {
+	0% { transform: rotate(290deg); }
+	100% { transform: rotate(10deg); }
+}
+
+@keyframes bgMove3 {
+	0% { transform: rotate(-180deg); }
+	100% { transform: rotate(180deg); }
+}
+
+div.clock {
+	display: flex;
+	flex-flow: row wrap;
+	vertical-align: top;
+	justify-content: center;
+	order: 1;
+
+	row-gap: 0.1em;
+	column-gap: 0.1em;
+}
+
+div.column {
+	flex-flow: column wrap;
+}
+
+div.displayLabel {
+	display: flex;
+	vertical-align: middle;
+	justify-content: center;
+	width: 0.5em;
+	height: 2em;
+	margin-right: 0.04em;
+	margin-left: 0.04em;
+	transform-origin: center;
+	transform: rotate(-90deg);
+}
+
+div.displayLabelContent {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	vertical-align: middle;
+	top: 2.5em;
+	height: 1.3em;
+	min-width: 4em;
+	font-size: 0.3em;
+	border: solid 3px black;
+	border-radius: 0.34em;
+	padding: 0.07em 0.5em;
+	background-color: var(--displayBg);
+	color: var(--currentNumberPlateBg);
+}
+
+div.numberDisplay {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	height: 2em;
+	z-index: 11;
+}
+
+div.digitDisplay {
+	background-color: var(--displayBg);
+	border: solid 4px black;
+	border-radius: 0.1em;
+	padding: 0;
+	width: 1em;
+	height: 2em;
+	vertical-align: middle;
+	position: relative;
+	overflow: clip;
+	box-sizing: border-box;
+	float:left;
+}
+
+div.digitDisplayVisibleArea {
+	position: absolute;
+	width: 100%;
+	height: 80%;
+	top: 10%;
+	overflow: clip;
+	box-sizing: border-box;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+div.visibleAreaTopFade {
+	background-image: linear-gradient(180deg, var(--displayBg), var(--displayBgTransparent));
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 20%;
+	z-index: 10;
+	box-sizing: content-box;
+}
+
+div.visibleAreaBottomFade {
+	background-image: linear-gradient(0deg, var(--displayBg), var(--displayBgTransparent));
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 20%;
+	z-index: 10;
+}
+
+@keyframes pos3 {
+	0% { top: 135%; }
+	100% { top: 80%; background-color: var(--numberPlateBg); color: var(--number);}
+}
+@keyframes pos2 {
+	0% { top: 80%; background-color: var(--numberPlateBg); color: var(--number);}
+	100% { top: 25%; background-color: var(--currentNumberPlateBg); color: var(--currentNumber);;}
+}
+@keyframes pos1 {
+	0% { top: 25%; background-color: var(--currentNumberPlateBg); color: var(--currentNumber);}
+	100% { top: -30%; background-color: var(--numberPlateBg); color: var(--number);}
+}
+@keyframes pos0 {
+	0% { top: -30%; background-color: var(--numberPlateBg); color: var(--number);}
+	100% { top: -85%; background-color: var(--numberPlateBg); color: var(--number);}
+}
+
+div.valuePlate {
+	border: solid 2px black;
+	text-align: center;
+	border-radius: 0.1em;
+	width: 80%;
+	height: 50%;
+	position: absolute;
+	left: 10%;
+	top: 140%;
+	font-size: 80%;
+	font-weight: bold;
+	line-height: 89%;
+	box-sizing: border-box;
+	animation-duration: 350ms;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+.pos0 {	animation-name: pos0; }
+.pos1 { animation-name: pos1; }
+.pos2 {	animation-name: pos2; }
+.pos3 {	animation-name: pos3; }
+
+div#controls {
+	opacity: 100%;
+	order: 2;
+	z-index: 14;
+	background-color: var(--displayBgHalfTsp);
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	vertical-align: middle;
+	padding: 0.2em 0.2em;
+	gap: 0.4em;
+	border: solid 3px black;
+	border-radius: 0.15em;
+}
+
+button {
+	border: solid 3px black;
+	border-radius: 0.15em;
+	font-size: 0.4em;
+	font-weight: bold;
+	background-color: var(--currentNumberPlateBg);
+	color: var(--currentNumber);
+}
+
+button.active {
+	transition-property: transform, opacity, background-color;
+	transition-duration: 200ms;
+	transform: scale(110%);
+}
+
+button.inactive {
+	background-color: var(--numberPlateBg);
+	transform: scale(100%);
+	transition-property: transform, opacity, background-color;
+	transition-duration: 200ms;
+	opacity: 75%;
+}
+
+button.inactive:hover {
+	opacity: 100%;
+	transform: scale(110%);
+}
