@@ -76,7 +76,7 @@ div#showy {
 	border: solid 5px black;
 	border-radius: .2em;
 	position: relative;
-	overflow: clip;
+	overflow: hidden;
 	background-color: black;
 }
 
@@ -246,7 +246,7 @@ div.digitDisplay {
 	height: 2em;
 	vertical-align: middle;
 	position: relative;
-	overflow: clip;
+	overflow: hidden;
 	box-sizing: border-box;
 	float:left;
 }
